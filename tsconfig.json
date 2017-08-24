@@ -1,0 +1,14 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+                "module": "umd", 
+                "target": "es5",
+                "outDir": "dist/gen",
+                "sourceMap": true,
+                "declaration": true,
+                "removeComments": true
+            },
+    "files": [
+        "./src/markdown.ts"
+    ]
+}
