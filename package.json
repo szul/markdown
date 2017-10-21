@@ -1,13 +1,10 @@
 {
   "name": "metronical.markdown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A JavaScript powered markdown engine (written in TypeScript) for converting markdown to HTML.",
   "main": "./dist/gen/markdown.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "tsc -p ."
   },
   "repository": {
     "type": "git",
