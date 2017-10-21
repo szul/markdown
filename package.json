@@ -1,6 +1,6 @@
 {
   "name": "metronical.markdown",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A JavaScript powered markdown engine (written in TypeScript) for converting markdown to HTML.",
   "main": "./dist/gen/markdown.js",
   "directories": {
@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/metronical/markdown#readme",
   "dependencies": {
-    "typescript": "^2.4.2"
+    "typescript": "^2.5.3"
   }
 }
