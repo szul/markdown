@@ -1,14 +1,39 @@
 {
-  "name": "metronical.markdown",
-  "version": "0.1.1",
+  "name": "@strangelooprun/markdown",
+  "version": "0.0.0",
   "description": "A JavaScript powered markdown engine (written in TypeScript) for converting markdown to HTML.",
-  "main": "./dist/gen/markdown.js",
+  "main": "./lib/index.js",
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": true,
+    "check-coverage": true,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.test.js"
+    ],
+    "reporter": [
+      "text",
+      "cobertura",
+      "html"
+    ],
+    "report-dir": "./.nyc_output/coverage"
+  },
   "scripts": {
-    "postinstall": "tsc -p ."
+    "build": "tsc",
+    "test": "tsc && nyc mocha",
+    "test-ci": "tsc && nyc mocha --reporter xunit --reporter-options output=./mocha-test-results.xml --reporter-options suiteName=$npm_package_name",
+    "eslint": "eslint ./src/*.ts ./src/**/*.ts",
+    "eslint-fix": "eslint ./src/*.ts ./src/**/*.ts --fix",
+    "preversion": "npm run build",
+    "postversion": "git push && git push --tags origin master"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/metronical/markdown.git"
+    "url": "git+https://github.com/strangelooprun/markdown.git"
   },
   "keywords": [
     "typescript",
@@ -16,12 +41,26 @@
     "markdown"
   ],
   "author": "Michael Szul <michael@szul.us>",
+  "contributors": [
+    "Mathieu 'p01' Henri (https://github.com/p01/mmd.js)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/metronical/markdown/issues"
+    "url": "https://github.com/strangelooprun/markdown/issues"
   },
-  "homepage": "https://github.com/metronical/markdown#readme",
-  "dependencies": {
-    "typescript": "^2.5.3"
+  "homepage": "https://github.com/strangelooprun/markdown#readme",
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.0",
+    "@types/node": "^13.1.6",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "eslint": "^6.8.0",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.0",
+    "rewire": "^4.0.1",
+    "typescript": "^3.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

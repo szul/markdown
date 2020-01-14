@@ -1,14 +1,17 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
-                "module": "umd", 
-                "target": "es5",
-                "outDir": "dist/gen",
-                "sourceMap": true,
-                "declaration": true,
-                "removeComments": true
-            },
-    "files": [
-        "./src/markdown.ts"
+        "target": "ES2015",
+        "module": "commonjs",
+        "declaration": true,
+        "sourceMap": true,
+        "outDir": "./lib",
+        "rootDir": "./src",
+        "types": [
+            "node"
+        ]
+    },
+    "compileOnSave": true,
+    "include": [
+        "src/**/*"
     ]
 }
